@@ -38,17 +38,19 @@
             this.ProcPannel.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.ProcPannel.AutoScroll = true;
             this.ProcPannel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProcPannel.Location = new System.Drawing.Point(45, 12);
+            this.ProcPannel.Location = new System.Drawing.Point(34, 10);
+            this.ProcPannel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ProcPannel.Name = "ProcPannel";
-            this.ProcPannel.Size = new System.Drawing.Size(411, 187);
+            this.ProcPannel.Size = new System.Drawing.Size(309, 152);
             this.ProcPannel.TabIndex = 0;
             // 
             // OkButton
             // 
             this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.OkButton.Location = new System.Drawing.Point(74, 216);
+            this.OkButton.Location = new System.Drawing.Point(56, 176);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(98, 46);
+            this.OkButton.Size = new System.Drawing.Size(74, 37);
             this.OkButton.TabIndex = 2;
             this.OkButton.Text = "Ok";
             this.OkButton.UseVisualStyleBackColor = false;
@@ -57,9 +59,10 @@
             // CancButton
             // 
             this.CancButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.CancButton.Location = new System.Drawing.Point(325, 216);
+            this.CancButton.Location = new System.Drawing.Point(244, 176);
+            this.CancButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CancButton.Name = "CancButton";
-            this.CancButton.Size = new System.Drawing.Size(98, 46);
+            this.CancButton.Size = new System.Drawing.Size(74, 37);
             this.CancButton.TabIndex = 3;
             this.CancButton.Text = "Cancel";
             this.CancButton.UseVisualStyleBackColor = false;
@@ -67,14 +70,15 @@
             // 
             // ProcessesPannel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 284);
+            this.ClientSize = new System.Drawing.Size(375, 228);
             this.ControlBox = false;
             this.Controls.Add(this.CancButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.ProcPannel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ProcessesPannel";

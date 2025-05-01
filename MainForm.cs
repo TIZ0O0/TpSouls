@@ -114,7 +114,7 @@ namespace TpSouls
 
         private void TeleportButton_Click(object sender, EventArgs e)
         {
-
+            TpSoulsLogic.Teleport();
         }
 
         private void SelectProcButton_Click(object sender, EventArgs e)
