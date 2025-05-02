@@ -1,6 +1,6 @@
 ﻿namespace TpSouls
 {
-    partial class MainForm
+    partial class TpMap
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@
             // 
             this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.SaveButton.Location = new System.Drawing.Point(112, 321);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(74, 34);
             this.SaveButton.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             this.LoadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.LoadButton.Location = new System.Drawing.Point(190, 321);
-            this.LoadButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoadButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(74, 34);
             this.LoadButton.TabIndex = 10;
@@ -79,7 +79,7 @@
             // 
             this.NewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.NewButton.Location = new System.Drawing.Point(304, 25);
-            this.NewButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NewButton.Margin = new System.Windows.Forms.Padding(2);
             this.NewButton.Name = "NewButton";
             this.NewButton.Size = new System.Drawing.Size(55, 56);
             this.NewButton.TabIndex = 15;
@@ -93,7 +93,7 @@
             this.TPointsPannel.AutoScroll = true;
             this.TPointsPannel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPointsPannel.Location = new System.Drawing.Point(22, 51);
-            this.TPointsPannel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TPointsPannel.Margin = new System.Windows.Forms.Padding(2);
             this.TPointsPannel.Name = "TPointsPannel";
             this.TPointsPannel.Size = new System.Drawing.Size(242, 253);
             this.TPointsPannel.TabIndex = 18;
@@ -102,7 +102,7 @@
             // 
             this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.AddButton.Location = new System.Drawing.Point(304, 86);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(55, 56);
             this.AddButton.TabIndex = 19;
@@ -115,7 +115,7 @@
             this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.EditButton.Location = new System.Drawing.Point(304, 147);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(55, 56);
             this.EditButton.TabIndex = 20;
@@ -127,7 +127,7 @@
             // 
             this.DelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.DelButton.Location = new System.Drawing.Point(304, 208);
-            this.DelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DelButton.Margin = new System.Windows.Forms.Padding(2);
             this.DelButton.Name = "DelButton";
             this.DelButton.Size = new System.Drawing.Size(55, 56);
             this.DelButton.TabIndex = 21;
@@ -139,7 +139,7 @@
             // 
             this.TeleportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.TeleportButton.Location = new System.Drawing.Point(304, 269);
-            this.TeleportButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TeleportButton.Margin = new System.Windows.Forms.Padding(2);
             this.TeleportButton.Name = "TeleportButton";
             this.TeleportButton.Size = new System.Drawing.Size(55, 56);
             this.TeleportButton.TabIndex = 22;
@@ -151,7 +151,7 @@
             // 
             this.SelectProcButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.SelectProcButton.Location = new System.Drawing.Point(22, 321);
-            this.SelectProcButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SelectProcButton.Margin = new System.Windows.Forms.Padding(2);
             this.SelectProcButton.Name = "SelectProcButton";
             this.SelectProcButton.Size = new System.Drawing.Size(74, 34);
             this.SelectProcButton.TabIndex = 23;
@@ -169,7 +169,7 @@
             this.ProcName.TabIndex = 24;
             this.ProcName.Text = "ProcessName: None";
             // 
-            // MainForm
+            // TpMap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,12 +186,13 @@
             this.Controls.Add(this.FileName);
             this.Controls.Add(this.SaveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "TpMap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tp_Souls";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TpMap_FormClosing);
+            this.Load += new System.EventHandler(this.TpMap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -2,17 +2,20 @@
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
+using TpSouls.Forms;
 
 namespace TpSouls
 {
-    public partial class MainForm : Form
+    public partial class TpMap : Form
     {
+        private MainForm mainForm;
         private TPointEdit editor;
         private ProcessesPannel procPannel;
 
-        public MainForm()
+        public TpMap(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         public void SetProcName(string name)
@@ -85,7 +88,7 @@ namespace TpSouls
             this.Enabled = false;            
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void TpMap_Load(object sender, EventArgs e)
         {
             editor = new TPointEdit(this);
             procPannel = new ProcessesPannel(this);
@@ -121,6 +124,11 @@ namespace TpSouls
         {
             procPannel.CallProcessesPannel();
             this.Enabled = false;
+        }
+
+        private void TpMap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

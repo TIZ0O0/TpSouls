@@ -15,9 +15,9 @@ namespace TpSouls
     {
         public EditorMode mode;
 
-        private readonly MainForm mForm;
+        private readonly TpMap mForm;
 
-        public TPointEdit(MainForm mForm)
+        public TPointEdit(TpMap mForm)
         {
             InitializeComponent();
             this.mForm = mForm;

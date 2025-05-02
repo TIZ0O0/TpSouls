@@ -7,9 +7,9 @@ namespace TpSouls
 {
     public partial class ProcessesPannel : Form
     {
-        public readonly MainForm mForm;
+        public readonly TpMap mForm;
 
-        public ProcessesPannel(MainForm mForm)
+        public ProcessesPannel(TpMap mForm)
         {
             InitializeComponent();
             this.mForm = mForm;

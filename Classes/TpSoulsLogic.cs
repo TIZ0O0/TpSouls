@@ -133,6 +133,17 @@ namespace TpSouls
             {
                 return null;
             }
+
+            //bool exitFlag = true;
+
+            //int startIndex;
+            //int endIndex;
+
+            //while (exitFlag)
+            //{
+            //    startIndex = line.IndexOf(";");
+            //}
+
         }
     }
 }
