@@ -12,12 +12,18 @@ namespace TpSouls.Forms
 {
     public partial class MainForm : Form
     {
-        private TpMap tMap;
-        private VarChanger varChanger;
+        public TpMap tMap;
+        public VarChanger varChanger;
+        public ProcessesPannel procPanel;
 
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        public void SetProcessName(string name)
+        {
+            this.ProcName.Text = "ProcessName: " + name;
         }
 
         private void OpenTMButton_Click(object sender, EventArgs e)
@@ -30,14 +36,22 @@ namespace TpSouls.Forms
         {
             tMap = new TpMap(this);
             varChanger = new VarChanger(this);
+            procPanel = new ProcessesPannel(this);
             tMap.Hide();
             varChanger.Hide();
+            procPanel.Hide();
         }
 
         private void OpenVCButton_Click(object sender, EventArgs e)
         {
             varChanger.Show();
             this.Hide();
+        }
+
+        private void SelectProcButton_Click(object sender, EventArgs e)
+        {
+            procPanel.CallProcessesPannel();
+            this.Enabled = false;
         }
     }
 }

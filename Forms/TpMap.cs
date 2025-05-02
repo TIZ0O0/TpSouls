@@ -10,7 +10,6 @@ namespace TpSouls
     {
         private MainForm mainForm;
         private TPointEdit editor;
-        private ProcessesPannel procPannel;
 
         public TpMap(MainForm mainForm)
         {
@@ -18,7 +17,7 @@ namespace TpSouls
             this.mainForm = mainForm;
         }
 
-        public void SetProcName(string name)
+        public void SetProcessName(string name)
         {
             ProcName.Text = "";
             ProcName.Text += "ProcessName: " + name;
@@ -91,9 +90,7 @@ namespace TpSouls
         private void TpMap_Load(object sender, EventArgs e)
         {
             editor = new TPointEdit(this);
-            procPannel = new ProcessesPannel(this);
             editor.Hide();
-            procPannel.Hide();
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -120,15 +117,15 @@ namespace TpSouls
             TpSoulsLogic.Teleport();
         }
 
-        private void SelectProcButton_Click(object sender, EventArgs e)
-        {
-            procPannel.CallProcessesPannel();
-            this.Enabled = false;
-        }
-
         private void TpMap_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            mainForm.Show();
+            this.Hide();
         }
     }
 }

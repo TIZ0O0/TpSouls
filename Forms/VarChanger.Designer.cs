@@ -29,35 +29,64 @@
         private void InitializeComponent()
         {
             this.VarPanel = new System.Windows.Forms.Panel();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.ProcName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // VarPanel
             // 
             this.VarPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.VarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VarPanel.Location = new System.Drawing.Point(30, 12);
+            this.VarPanel.Location = new System.Drawing.Point(148, 43);
+            this.VarPanel.Margin = new System.Windows.Forms.Padding(4);
             this.VarPanel.Name = "VarPanel";
-            this.VarPanel.Size = new System.Drawing.Size(244, 318);
+            this.VarPanel.Size = new System.Drawing.Size(325, 361);
             this.VarPanel.TabIndex = 0;
+            // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.BackButton.Location = new System.Drawing.Point(15, 368);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(99, 42);
+            this.BackButton.TabIndex = 26;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
+            // ProcName
+            // 
+            this.ProcName.AutoSize = true;
+            this.ProcName.Location = new System.Drawing.Point(12, 9);
+            this.ProcName.Name = "ProcName";
+            this.ProcName.Size = new System.Drawing.Size(133, 16);
+            this.ProcName.TabIndex = 27;
+            this.ProcName.Text = "ProcessName: None";
             // 
             // VarChanger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 342);
+            this.ClientSize = new System.Drawing.Size(615, 421);
+            this.Controls.Add(this.ProcName);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.VarPanel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "VarChanger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VarChanger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VarChanger_FormClosing);
-            this.Load += new System.EventHandler(this.VarChanger_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         public System.Windows.Forms.Panel VarPanel;
+        private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Label ProcName;
     }
 }

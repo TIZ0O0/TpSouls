@@ -2,17 +2,25 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using TpSouls.Forms;
 
 namespace TpSouls
 {
     public partial class ProcessesPannel : Form
     {
-        public readonly TpMap mForm;
+        public readonly MainForm mainForm;
 
-        public ProcessesPannel(TpMap mForm)
+        public ProcessesPannel(MainForm mForm)
         {
             InitializeComponent();
-            this.mForm = mForm;
+            this.mainForm = mForm;
+        }
+
+        public void SetAllProcessName(string name)
+        {
+            mainForm.SetProcessName(name);
+            mainForm.tMap.SetProcessName(name);
+            mainForm.varChanger.SetProcessName(name);
         }
 
         public void CallProcessesPannel()
@@ -50,11 +58,14 @@ namespace TpSouls
                         TpSoulsLogic.selectedProcID = TpSoulsLogic.selectedProcButton.assignedProcID;
                         TpSoulsLogic.selectedProcName = TpSoulsLogic.selectedProcButton.assignedProcName;
 
-                        mForm.SetProcName(TpSoulsLogic.selectedProcButton.assignedProcName);
-                   
+                        SetAllProcessName(TpSoulsLogic.selectedProcButton.assignedProcName);
+
+                        mainForm.varChanger.VarPanel.Controls.Clear();
+                        mainForm.varChanger.VarPanel.Controls.AddRange(TpSoulsLogic.GetVarControls());
+
                         TpSoulsLogic.selectedProcButton = null;
 
-                        mForm.Enabled = true;
+                        mainForm.Enabled = true;
                         this.Hide();
 
                         break;
@@ -81,7 +92,7 @@ namespace TpSouls
         {
             TpSoulsLogic.selectedProcButton = null;
 
-            mForm.Enabled = true;
+            mainForm.Enabled = true;
             this.Hide();
         }
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Management;
+using TpSouls.UI_Elements;
 
 namespace TpSouls
 {
@@ -16,12 +17,14 @@ namespace TpSouls
         public static TPointButton selectedTPbutton = null;
         public static List<TPoint> selectedTPoints = new List<TPoint>();
 
-        public static ProcessButton selectedProcButton = null;
         public static List<ProcFinderWinAPI.PROCESSENTRY32> currentProcs;
 
+        public static ProcessButton selectedProcButton = null;
         public static string selectedProcName = null;
         public static uint selectedProcID = 0;
 
+        private static List<string> varsOffsets = new List<string>();
+            
         private static string offsetsX = null;
         private static string offsetsY = null;
         private static string offsetsZ = null;
@@ -45,6 +48,7 @@ namespace TpSouls
             offsetsX = null;
             offsetsY = null;
             offsetsZ = null;
+            varsOffsets.Clear();
     }
 
         public static TPointButton[] GetTP_Buttons()
@@ -71,6 +75,18 @@ namespace TpSouls
             return procButtons;
         }
 
+        public static VarControl[] GetVarControls()
+        {
+            VarControl[] varCtrl = new VarControl[varsOffsets.Count];
+
+            for (int i = varsOffsets.Count - 1, j = 0; i >= 0; i--, j++)
+            {
+                varCtrl[j] = new VarControl(GetName(varsOffsets[i]), GetOffsets(varsOffsets[i]));
+            }
+
+            return varCtrl;
+        }
+
         public static void Teleport()
         {
             if (offsetsX != null && offsetsY != null && offsetsZ != null && selectedTPbutton != null)
@@ -95,9 +111,8 @@ namespace TpSouls
                     {
                         if (line.StartsWith(selectedProcName))
                         {
-                            offsetsX = GetOffsets(line, "X");
-                            offsetsY = GetOffsets(line, "Y");
-                            offsetsZ = GetOffsets(line, "Z");
+                            ResetOffsets();
+                            GetNamesWithOffsets(line);
                             if (offsetsX == null || offsetsY == null || offsetsZ == null) 
                                 return ErrorType.WrongOffsetFormat;
                             existFlag = true;
@@ -120,30 +135,41 @@ namespace TpSouls
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
         }
 
-        private static string GetOffsets(string line, string axis)
-        {
-            int startIndex = line.IndexOf(axis + ":");
+        private static void GetNamesWithOffsets(string line)
+        {          
+            int startIndex = line.IndexOf(";") + 1;
             int endIndex = line.IndexOf(";", startIndex);
-            if (startIndex != -1 && endIndex != -1)
-            {
-                string offsets = line.Substring(startIndex + 2, endIndex - (startIndex + 2));
-                return offsets;
+
+            string namesOffsets;
+
+            while (endIndex != -1)
+            {               
+                namesOffsets = line.Substring(startIndex, endIndex - startIndex);
+              
+                if (GetName(namesOffsets) == "X") offsetsX = GetOffsets(namesOffsets);
+                else if (GetName(namesOffsets) == "Y") offsetsY = GetOffsets(namesOffsets);
+                else if (GetName(namesOffsets) == "Z") offsetsZ = GetOffsets(namesOffsets);
+                
+                else
+                {
+                    varsOffsets.Add(namesOffsets);                    
+                }
+
+                startIndex = endIndex + 1;
+                endIndex = line.IndexOf(";", startIndex);
             }
-            else
-            {
-                return null;
-            }
+        }
 
-            //bool exitFlag = true;
+        private static string GetName(string line)
+        {
+            int endIndex = line.IndexOf(":");
+            return line.Substring(0, endIndex);
+        }
 
-            //int startIndex;
-            //int endIndex;
-
-            //while (exitFlag)
-            //{
-            //    startIndex = line.IndexOf(";");
-            //}
-
+        private static string GetOffsets(string line)
+        {
+            int startIndex = line.IndexOf(":") + 1;
+            return line.Substring(startIndex);
         }
     }
 }
