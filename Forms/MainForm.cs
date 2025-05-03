@@ -13,7 +13,7 @@ namespace TpSouls.Forms
     public partial class MainForm : Form
     {
         public TpMap tMap;
-        public VarChanger varChanger;
+        public VarList varList;
         public ProcessesPannel procPanel;
 
         public MainForm()
@@ -35,16 +35,16 @@ namespace TpSouls.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             tMap = new TpMap(this);
-            varChanger = new VarChanger(this);
+            varList = new VarList(this);
             procPanel = new ProcessesPannel(this);
             tMap.Hide();
-            varChanger.Hide();
+            varList.Hide();
             procPanel.Hide();
         }
 
         private void OpenVCButton_Click(object sender, EventArgs e)
         {
-            varChanger.Show();
+            varList.Show();
             this.Hide();
         }
 

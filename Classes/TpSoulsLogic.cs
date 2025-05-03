@@ -3,13 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Management;
+using TpSouls.Forms;
 using TpSouls.UI_Elements;
 
 namespace TpSouls
 {
     internal static class TpSoulsLogic
     {
+        public static MainForm mainForm;
+
         public static string currentPath = null;
 
         public static Mem memory = new Mem();
@@ -17,11 +21,15 @@ namespace TpSouls
         public static TPointButton selectedTPbutton = null;
         public static List<TPoint> selectedTPoints = new List<TPoint>();
 
+        public static VarControl selectedVarCtrl = null;
+
         public static List<ProcFinderWinAPI.PROCESSENTRY32> currentProcs;
 
         public static ProcessButton selectedProcButton = null;
         public static string selectedProcName = null;
         public static uint selectedProcID = 0;
+
+        private static readonly string[] supportedValueTypes = { "byte", "int", "float", "double", "long", "string" };
 
         private static List<string> varsOffsets = new List<string>();
             
@@ -34,7 +42,9 @@ namespace TpSouls
             None,
             FileDoesntExists,
             WrongOffsetFormat,
-            NoOffsetsForProcess
+            NoOffsetsForProcess,
+            UnknownType,
+            FailedToWriteMemory
         }
 
         public static void ResetSelectedProc()
@@ -81,8 +91,9 @@ namespace TpSouls
 
             for (int i = varsOffsets.Count - 1, j = 0; i >= 0; i--, j++)
             {
-                varCtrl[j] = new VarControl(GetName(varsOffsets[i]), GetOffsets(varsOffsets[i]));
-            }
+                varCtrl[j] = new VarControl(mainForm.varList, GetName(varsOffsets[i]), 
+                    GetOffsets(varsOffsets[i]), GetValueType(varsOffsets[i]));
+            }            
 
             return varCtrl;
         }
@@ -94,6 +105,43 @@ namespace TpSouls
                 memory.WriteMemory(offsetsX, "float", selectedTPbutton.assignedTPoint.posX.ToString());
                 memory.WriteMemory(offsetsY, "float", selectedTPbutton.assignedTPoint.posY.ToString());
                 memory.WriteMemory(offsetsZ, "float", selectedTPbutton.assignedTPoint.posZ.ToString());
+            }
+        }
+
+        public static ErrorType SetValue(string offsets, string type, string value)
+        {
+            if (!supportedValueTypes.Contains(type)) return ErrorType.UnknownType;
+
+            bool success = memory.WriteMemory(offsets, type, value);
+
+            if (success) return ErrorType.None;
+            else return ErrorType.FailedToWriteMemory;       
+        }
+
+        public static string GetValue(string offsets, string type)
+        {
+            switch (type)
+            {
+                case "byte":
+                    return memory.ReadByte(offsets).ToString();
+
+                case "int":
+                    return memory.ReadInt(offsets).ToString();
+
+                case "float":
+                    return memory.ReadFloat(offsets).ToString();
+
+                case "double":
+                    return memory.ReadDouble(offsets).ToString();
+
+                case "long":
+                    return memory.ReadLong(offsets).ToString();
+
+                case "string":
+                    return memory.ReadString(offsets);
+
+                default:
+                    return "UnknownValueType";
             }
         }
 
@@ -163,13 +211,48 @@ namespace TpSouls
         private static string GetName(string line)
         {
             int endIndex = line.IndexOf(":");
-            return line.Substring(0, endIndex);
+
+            try
+            {
+                return line.Substring(0, endIndex);
+            }
+            catch (Exception)
+            {
+                return "";
+                throw;
+            }
         }
 
         private static string GetOffsets(string line)
         {
             int startIndex = line.IndexOf(":") + 1;
-            return line.Substring(startIndex);
+            int endIndex = line.IndexOf(":", startIndex);
+
+            try
+            {
+                return line.Substring(startIndex, endIndex - startIndex);
+            }
+            catch (Exception)
+            {
+                return "";
+                throw;
+            }
+        }
+
+        private static string GetValueType(string line)
+        {
+            int startIndex = line.IndexOf(":") + 1;
+            startIndex = line.IndexOf(":", startIndex) + 1;
+
+            try
+            {
+                return line.Substring(startIndex);
+            }
+            catch (Exception)
+            {
+                return "";
+                throw;
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TpSouls
 {
     public partial class TpMap : Form
     {
-        private MainForm mainForm;
+        private readonly MainForm mainForm;
         private TPointEdit editor;
 
         public TpMap(MainForm mainForm)

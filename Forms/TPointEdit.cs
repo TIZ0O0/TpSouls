@@ -15,12 +15,12 @@ namespace TpSouls
     {
         public EditorMode mode;
 
-        private readonly TpMap mainForm;
+        private readonly TpMap tpMap;
 
-        public TPointEdit(TpMap mForm)
+        public TPointEdit(TpMap tpMap)
         {
             InitializeComponent();
-            this.mainForm = mForm;
+            this.tpMap = tpMap;
         }
 
         public void CallEditor(EditorMode mode)
@@ -47,7 +47,7 @@ namespace TpSouls
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            mainForm.Enabled = true;
+            tpMap.Enabled = true;
 
             this.Hide();
             RefreshBoxes();
@@ -77,7 +77,7 @@ namespace TpSouls
                 case EditorMode.AddNew:
                     TPoint newTP = new TPoint(NameBox.Text, posX, posY, posZ);
                     TpSoulsLogic.selectedTPoints.Add(newTP);
-                    mainForm.TPointsPannel.Controls.Add(new TPointButton(newTP));
+                    tpMap.TPointsPannel.Controls.Add(new TPointButton(newTP));
                     break;
 
                 case EditorMode.Edit:
@@ -92,7 +92,7 @@ namespace TpSouls
                     break;
             }
 
-            mainForm.Enabled = true;
+            tpMap.Enabled = true;
 
             this.Hide();
             RefreshBoxes();

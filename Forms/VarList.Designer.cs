@@ -1,6 +1,6 @@
 ﻿namespace TpSouls
 {
-    partial class VarChanger
+    partial class VarList
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.VarPanel = new System.Windows.Forms.Panel();
             this.BackButton = new System.Windows.Forms.Button();
             this.ProcName = new System.Windows.Forms.Label();
+            this.ValueRefresh = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // VarPanel
@@ -64,7 +65,11 @@
             this.ProcName.TabIndex = 27;
             this.ProcName.Text = "ProcessName: None";
             // 
-            // VarChanger
+            // ValueRefresh
+            // 
+            this.ValueRefresh.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ValueRefresh_DoWork);
+            // 
+            // VarList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,10 +79,12 @@
             this.Controls.Add(this.VarPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "VarChanger";
+            this.Name = "VarList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VarChanger";
+            this.Text = "VarList";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VarChanger_FormClosing);
+            this.Load += new System.EventHandler(this.VarList_Load);
+            this.Shown += new System.EventHandler(this.VarList_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,5 +95,6 @@
         public System.Windows.Forms.Panel VarPanel;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Label ProcName;
+        private System.ComponentModel.BackgroundWorker ValueRefresh;
     }
 }

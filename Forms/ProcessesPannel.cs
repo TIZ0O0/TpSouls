@@ -20,7 +20,7 @@ namespace TpSouls
         {
             mainForm.SetProcessName(name);
             mainForm.tMap.SetProcessName(name);
-            mainForm.varChanger.SetProcessName(name);
+            mainForm.varList.SetProcessName(name);
         }
 
         public void CallProcessesPannel()
@@ -60,8 +60,8 @@ namespace TpSouls
 
                         SetAllProcessName(TpSoulsLogic.selectedProcButton.assignedProcName);
 
-                        mainForm.varChanger.VarPanel.Controls.Clear();
-                        mainForm.varChanger.VarPanel.Controls.AddRange(TpSoulsLogic.GetVarControls());
+                        mainForm.varList.VarPanel.Controls.Clear();
+                        mainForm.varList.VarPanel.Controls.AddRange(TpSoulsLogic.GetVarControls());
 
                         TpSoulsLogic.selectedProcButton = null;
 

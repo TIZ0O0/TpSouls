@@ -1,15 +1,21 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TpSouls.UI_Elements
 {
     internal class VarControl : UserControl
     {
+        public string VarType;
         public string VarOffset;
+
+        private readonly VarList varList;
 
         private TextBox textBox;
         private Label label;
         private CheckBox checkBox;
+
+        private static object locker = new object();
 
         public string VarValue
         { 
@@ -29,18 +35,22 @@ namespace TpSouls.UI_Elements
             set { checkBox.Checked = value; }
         }
 
-        public VarControl(string varName, string varOffset)
+        public VarControl(VarList varList, string varName, string varOffset, string varType)
         {
             this.Size = new Size(190,30);
             this.BorderStyle = BorderStyle.FixedSingle;
 
             this.VarOffset = varOffset;
+            this.VarType = varType;
+            this.varList = varList;
 
             textBox = new TextBox();
             
             textBox.Text = "SomeNum";
             textBox.Size = new Size(135,30);
             textBox.Location = new Point(95,4);
+            textBox.ReadOnly = true;
+            textBox.MouseDoubleClick += TextBox_DoubleClick;
 
             label = new Label();
 
@@ -55,9 +65,24 @@ namespace TpSouls.UI_Elements
 
             this.Controls.Add(textBox);
             this.Controls.Add(label);
-            this.Controls.Add(checkBox);
+            this.Controls.Add(checkBox);            
 
             this.Dock = DockStyle.Top;
+        }
+
+        public void ChangeVarValue(string value)
+        {
+            lock (locker)
+            {
+                VarValue = value;
+            }
+        }
+
+        private void TextBox_DoubleClick(object sender, EventArgs e)
+        {
+            TpSoulsLogic.selectedVarCtrl = this;
+
+            varList.CallVarEditor(this.VarValue, this.VarType);
         }
     }
 }
