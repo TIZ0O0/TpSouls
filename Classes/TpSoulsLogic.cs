@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using TpSouls.Forms;
 using TpSouls.UI_Elements;
 
@@ -118,6 +120,22 @@ namespace TpSouls
             else return ErrorType.FailedToWriteMemory;       
         }
 
+        public static bool SetValueFreezeState(string offsets, string type, string value, bool freezeState)
+        {
+            if (!supportedValueTypes.Contains(type)) return false;
+
+            bool succes;
+
+            if (freezeState == true) succes = memory.FreezeValue(offsets, type, value);
+            else
+            {
+                memory.UnfreezeValue(offsets);
+                succes = true;
+            }
+
+            return succes;
+        }
+
         public static string GetValue(string offsets, string type)
         {
             switch (type)
@@ -151,31 +169,45 @@ namespace TpSouls
 
             if (File.Exists(path))
             {
-                using (StreamReader reader = new StreamReader(path))
-                {
-                    string line;
-                    bool existFlag = false;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        if (line.StartsWith(selectedProcName))
-                        {
-                            ResetOffsets();
-                            GetNamesWithOffsets(line);
-                            if (offsetsX == null || offsetsY == null || offsetsZ == null) 
-                                return ErrorType.WrongOffsetFormat;
-                            existFlag = true;
-                            break;
-                        }
-                    }
+                string text = File.ReadAllText(path);
+                text = Regex.Replace(text, @"\s+", "");
 
-                    if (!existFlag) return ErrorType.NoOffsetsForProcess;
+                ErrorType error = ErrorType.None;
+                string procInfo = GetInfoForProcess(text, selectedProcName, ref error);
 
-                    return ErrorType.None;
-                }
+                if (error != ErrorType.None) return error;
+
+                ResetOffsets();
+                GetNamesWithOffsets(procInfo);
+
+                if (offsetsX == null || offsetsY == null || offsetsZ == null)
+                    error = ErrorType.WrongOffsetFormat;
+
+                return error;
             }
             else return ErrorType.FileDoesntExists;
             
         }   
+
+        private static string GetInfoForProcess(string text, string selectedProcName, ref ErrorType error)
+        {
+            int startIndex = text.IndexOf(selectedProcName) + selectedProcName.Length;
+            if (startIndex == -1)
+            {
+                error = ErrorType.NoOffsetsForProcess;
+                return "";
+            }
+
+            startIndex = text.IndexOf("{", startIndex) + 1;
+            int endIndex = text.IndexOf("}", startIndex);
+            if (startIndex == -1 || endIndex == -1)
+            {
+                error = ErrorType.WrongOffsetFormat;
+                return "";
+            }
+
+            return text.Substring(startIndex, endIndex - startIndex);
+        }
 
         private static string GetOffsetsFilePath()
         {
@@ -185,7 +217,7 @@ namespace TpSouls
 
         private static void GetNamesWithOffsets(string line)
         {          
-            int startIndex = line.IndexOf(";") + 1;
+            int startIndex = 0;
             int endIndex = line.IndexOf(";", startIndex);
 
             string namesOffsets;

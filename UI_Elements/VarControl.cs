@@ -61,7 +61,8 @@ namespace TpSouls.UI_Elements
             checkBox = new CheckBox();
 
             checkBox.Size = new Size(30,30);
-            checkBox.Location = new Point(5,0);            
+            checkBox.Location = new Point(5,0);
+            checkBox.CheckedChanged += CheckBox_CheckedChange;
 
             this.Controls.Add(textBox);
             this.Controls.Add(label);
@@ -83,6 +84,12 @@ namespace TpSouls.UI_Elements
             TpSoulsLogic.selectedVarCtrl = this;
 
             varList.CallVarEditor(this.VarValue, this.VarType);
+        }
+
+        private void CheckBox_CheckedChange(object sender, EventArgs e)
+        {
+            bool succes = TpSoulsLogic.SetValueFreezeState(VarOffset, VarType, VarValue, checkBox.Checked);
+            if (!succes) checkBox.Checked = !checkBox.Checked;
         }
     }
 }
