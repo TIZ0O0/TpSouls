@@ -36,6 +36,9 @@
             // 
             // Value
             // 
+            this.Value.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.Value.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Value.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Value.Location = new System.Drawing.Point(71, 66);
             this.Value.Name = "Value";
             this.Value.Size = new System.Drawing.Size(252, 22);
@@ -43,7 +46,9 @@
             // 
             // OkButton
             // 
-            this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.OkButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OkButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.OkButton.Location = new System.Drawing.Point(41, 123);
             this.OkButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OkButton.Name = "OkButton";
@@ -55,7 +60,9 @@
             // 
             // CancButton
             // 
-            this.CancButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.CancButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.CancButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CancButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.CancButton.Location = new System.Drawing.Point(243, 123);
             this.CancButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancButton.Name = "CancButton";
@@ -68,6 +75,7 @@
             // ValueType
             // 
             this.ValueType.AutoSize = true;
+            this.ValueType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ValueType.Location = new System.Drawing.Point(133, 33);
             this.ValueType.Name = "ValueType";
             this.ValueType.Size = new System.Drawing.Size(113, 16);
@@ -78,6 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(398, 199);
             this.ControlBox = false;
             this.Controls.Add(this.ValueType);

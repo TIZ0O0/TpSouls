@@ -12,8 +12,9 @@ namespace TpSouls
         public uint assignedProcID;
         public string assignedProcName;
 
-        private static readonly Color baseBackColor = Color.FromArgb(207, 212, 212);
-        private static readonly Color pressedBackColor = Color.FromArgb(176, 176, 176);
+        private static readonly Color baseBackColor = Color.FromArgb(61, 61, 61);
+        private static readonly Color pressedBackColor = Color.FromArgb(77, 77, 77);
+        private static readonly Color textColor = SystemColors.ButtonHighlight;
 
         public ProcessButton(uint procID, string procName) : base()
         {
@@ -21,6 +22,8 @@ namespace TpSouls
             this.assignedProcName = procName;
             this.Click += new System.EventHandler(ProcessButton_Click);
             this.BackColor = baseBackColor;
+            this.ForeColor = textColor;
+            this.FlatStyle = FlatStyle.Popup;
             Text = assignedProcName;            
             Dock = DockStyle.Top;
         }

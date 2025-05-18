@@ -9,16 +9,19 @@ namespace TpSouls
     {
         public TPoint assignedTPoint;
 
-        private static readonly Color baseBackColor = Color.FromArgb(207, 212, 212);
-        private static readonly Color pressedBackColor = Color.FromArgb(176, 176, 176);
+        private static readonly Color baseBackColor = Color.FromArgb(61, 61, 61);
+        private static readonly Color pressedBackColor = Color.FromArgb(77, 77, 77);
+        private static readonly Color textColor = SystemColors.ButtonHighlight;
 
         public TPointButton(TPoint assignedTPoint) : base()
         {         
             this.assignedTPoint = assignedTPoint;
             this.Click += new System.EventHandler(TPointButton_Click);
-            Text = assignedTPoint.name;
-            BackColor = baseBackColor;
-            Dock = DockStyle.Top;
+            this.FlatStyle = FlatStyle.Popup;
+            this.ForeColor = textColor;
+            this.Text = assignedTPoint.name;
+            this.BackColor = baseBackColor;
+            this.Dock = DockStyle.Top;
         }
 
         private void TPointButton_Click(object sender, EventArgs e)

@@ -40,7 +40,7 @@ namespace TpSouls
                 string selectedName = TpSoulsLogic.selectedProcButton.assignedProcName;
                 int selectedId = (int)TpSoulsLogic.selectedProcButton.assignedProcID;        
 
-                TpSoulsLogic.ErrorType error = TpSoulsLogic.SetOffsets(selectedName);
+                TpSoulsLogic.ErrorType error = TpSoulsLogic.SetPointers(selectedName);
 
                 switch (error)
                 {
@@ -51,7 +51,7 @@ namespace TpSouls
                         if (!openProc)
                         {
                             MessageBox.Show("Failed to open selected process.", "ErrorMessage", MessageBoxButtons.OK);
-                            TpSoulsLogic.ResetOffsets();
+                            TpSoulsLogic.ResetPointers();
                             return;
                         }
 
@@ -74,11 +74,11 @@ namespace TpSouls
                         MessageBox.Show("Cant find Offsets.txt file in base directory.", "ErrorMessage", MessageBoxButtons.OK);
                         break;
 
-                    case TpSoulsLogic.ErrorType.WrongOffsetFormat:
+                    case TpSoulsLogic.ErrorType.WrongPointerFormat:
                         MessageBox.Show("Wrong offset format in Offsets.txt file.", "ErrorMessage", MessageBoxButtons.OK);
                         break;
 
-                    case TpSoulsLogic.ErrorType.NoOffsetsForProcess:
+                    case TpSoulsLogic.ErrorType.NoPointersForProcess:
                         MessageBox.Show("Cant find offsets for selected process in Offsets.txt file.", "ErrorMessage", MessageBoxButtons.OK);
                         break;
 

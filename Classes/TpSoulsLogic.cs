@@ -33,18 +33,18 @@ namespace TpSouls
 
         private static readonly string[] supportedValueTypes = { "byte", "int", "float", "double", "long", "string" };
 
-        private static List<string> varsOffsets = new List<string>();
+        private static List<string> varsPointers = new List<string>();
             
-        private static string offsetsX = null;
-        private static string offsetsY = null;
-        private static string offsetsZ = null;
+        private static string pointerX = null;
+        private static string pointerY = null;
+        private static string pointerZ = null;
 
         public enum ErrorType 
         { 
             None,
             FileDoesntExists,
-            WrongOffsetFormat,
-            NoOffsetsForProcess,
+            WrongPointerFormat,
+            NoPointersForProcess,
             UnknownType,
             FailedToWriteMemory
         }
@@ -55,12 +55,12 @@ namespace TpSouls
             selectedProcID = 0;
         }
 
-        public static void ResetOffsets()
+        public static void ResetPointers()
         {
-            offsetsX = null;
-            offsetsY = null;
-            offsetsZ = null;
-            varsOffsets.Clear();
+            pointerX = null;
+            pointerY = null;
+            pointerZ = null;
+            varsPointers.Clear();
     }
 
         public static TPointButton[] GetTP_Buttons()
@@ -89,12 +89,12 @@ namespace TpSouls
 
         public static VarControl[] GetVarControls()
         {
-            VarControl[] varCtrl = new VarControl[varsOffsets.Count];
+            VarControl[] varCtrl = new VarControl[varsPointers.Count];
 
-            for (int i = varsOffsets.Count - 1, j = 0; i >= 0; i--, j++)
+            for (int i = varsPointers.Count - 1, j = 0; i >= 0; i--, j++)
             {
-                varCtrl[j] = new VarControl(mainForm.varList, GetName(varsOffsets[i]), 
-                    GetOffsets(varsOffsets[i]), GetValueType(varsOffsets[i]));
+                varCtrl[j] = new VarControl(mainForm.varList, GetName(varsPointers[i]), 
+                    GetPointer(varsPointers[i]), GetValueType(varsPointers[i]));
             }            
 
             return varCtrl;
@@ -102,70 +102,70 @@ namespace TpSouls
 
         public static void Teleport()
         {
-            if (offsetsX != null && offsetsY != null && offsetsZ != null && selectedTPbutton != null)
+            if (pointerX != null && pointerY != null && pointerZ != null && selectedTPbutton != null)
             {
-                memory.WriteMemory(offsetsX, "float", selectedTPbutton.assignedTPoint.posX.ToString());
-                memory.WriteMemory(offsetsY, "float", selectedTPbutton.assignedTPoint.posY.ToString());
-                memory.WriteMemory(offsetsZ, "float", selectedTPbutton.assignedTPoint.posZ.ToString());
+                memory.WriteMemory(pointerX, "float", selectedTPbutton.assignedTPoint.posX.ToString());
+                memory.WriteMemory(pointerY, "float", selectedTPbutton.assignedTPoint.posY.ToString());
+                memory.WriteMemory(pointerZ, "float", selectedTPbutton.assignedTPoint.posZ.ToString());
             }
         }
 
-        public static ErrorType SetValue(string offsets, string type, string value)
+        public static ErrorType SetValue(string pointer, string type, string value)
         {
             if (!supportedValueTypes.Contains(type)) return ErrorType.UnknownType;
 
-            bool success = memory.WriteMemory(offsets, type, value);
+            bool success = memory.WriteMemory(pointer, type, value);
 
             if (success) return ErrorType.None;
             else return ErrorType.FailedToWriteMemory;       
         }
 
-        public static bool SetValueFreezeState(string offsets, string type, string value, bool freezeState)
+        public static bool SetValueFreezeState(string pointer, string type, string value, bool freezeState)
         {
             if (!supportedValueTypes.Contains(type)) return false;
 
             bool succes;
 
-            if (freezeState == true) succes = memory.FreezeValue(offsets, type, value);
+            if (freezeState == true) succes = memory.FreezeValue(pointer, type, value);
             else
             {
-                memory.UnfreezeValue(offsets);
+                memory.UnfreezeValue(pointer);
                 succes = true;
             }
 
             return succes;
         }
 
-        public static string GetValue(string offsets, string type)
+        public static string GetValue(string pointer, string type)
         {
             switch (type)
             {
                 case "byte":
-                    return memory.ReadByte(offsets).ToString();
+                    return memory.ReadByte(pointer).ToString();
 
                 case "int":
-                    return memory.ReadInt(offsets).ToString();
+                    return memory.ReadInt(pointer).ToString();
 
                 case "float":
-                    return memory.ReadFloat(offsets).ToString();
+                    return memory.ReadFloat(pointer).ToString();
 
                 case "double":
-                    return memory.ReadDouble(offsets).ToString();
+                    return memory.ReadDouble(pointer).ToString();
 
                 case "long":
-                    return memory.ReadLong(offsets).ToString();
+                    return memory.ReadLong(pointer).ToString();
 
                 case "string":
-                    return memory.ReadString(offsets);
+                    return memory.ReadString(pointer);
 
                 default:
                     return "UnknownValueType";
             }
         }
 
-        public static ErrorType SetOffsets(string selectedProcName)
+        public static ErrorType SetPointers(string selectedProcName)
         {
-            string path = GetOffsetsFilePath();
+            string path = GetPointersFilePath();
 
             if (File.Exists(path))
             {
@@ -177,11 +177,11 @@ namespace TpSouls
 
                 if (error != ErrorType.None) return error;
 
-                ResetOffsets();
-                GetNamesWithOffsets(procInfo);
+                ResetPointers();
+                GetNamesWithPointers(procInfo);
 
-                if (offsetsX == null || offsetsY == null || offsetsZ == null)
-                    error = ErrorType.WrongOffsetFormat;
+                if (pointerX == null || pointerY == null || pointerZ == null)
+                    error = ErrorType.WrongPointerFormat;
 
                 return error;
             }
@@ -194,7 +194,7 @@ namespace TpSouls
             int startIndex = text.IndexOf(selectedProcName) + selectedProcName.Length;
             if (startIndex == -1)
             {
-                error = ErrorType.NoOffsetsForProcess;
+                error = ErrorType.NoPointersForProcess;
                 return "";
             }
 
@@ -202,20 +202,20 @@ namespace TpSouls
             int endIndex = text.IndexOf("}", startIndex);
             if (startIndex == -1 || endIndex == -1)
             {
-                error = ErrorType.WrongOffsetFormat;
+                error = ErrorType.WrongPointerFormat;
                 return "";
             }
 
             return text.Substring(startIndex, endIndex - startIndex);
         }
 
-        private static string GetOffsetsFilePath()
+        private static string GetPointersFilePath()
         {
-            string fileName = "Offsets.txt";
+            string fileName = "Pointers.txt";
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
         }
 
-        private static void GetNamesWithOffsets(string line)
+        private static void GetNamesWithPointers(string line)
         {          
             int startIndex = 0;
             int endIndex = line.IndexOf(";", startIndex);
@@ -226,13 +226,13 @@ namespace TpSouls
             {               
                 namesOffsets = line.Substring(startIndex, endIndex - startIndex);
               
-                if (GetName(namesOffsets) == "X") offsetsX = GetOffsets(namesOffsets);
-                else if (GetName(namesOffsets) == "Y") offsetsY = GetOffsets(namesOffsets);
-                else if (GetName(namesOffsets) == "Z") offsetsZ = GetOffsets(namesOffsets);
+                if (GetName(namesOffsets) == "X") pointerX = GetPointer(namesOffsets);
+                else if (GetName(namesOffsets) == "Y") pointerY = GetPointer(namesOffsets);
+                else if (GetName(namesOffsets) == "Z") pointerZ = GetPointer(namesOffsets);
                 
                 else
                 {
-                    varsOffsets.Add(namesOffsets);                    
+                    varsPointers.Add(namesOffsets);                    
                 }
 
                 startIndex = endIndex + 1;
@@ -255,7 +255,7 @@ namespace TpSouls
             }
         }
 
-        private static string GetOffsets(string line)
+        private static string GetPointer(string line)
         {
             int startIndex = line.IndexOf(":") + 1;
             int endIndex = line.IndexOf(":", startIndex);

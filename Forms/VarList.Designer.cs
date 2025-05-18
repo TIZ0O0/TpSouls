@@ -37,16 +37,19 @@
             // VarPanel
             // 
             this.VarPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.VarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.VarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.VarPanel.Location = new System.Drawing.Point(148, 43);
             this.VarPanel.Margin = new System.Windows.Forms.Padding(4);
             this.VarPanel.Name = "VarPanel";
-            this.VarPanel.Size = new System.Drawing.Size(325, 361);
+            this.VarPanel.Size = new System.Drawing.Size(341, 361);
             this.VarPanel.TabIndex = 0;
             // 
             // BackButton
             // 
-            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackButton.Location = new System.Drawing.Point(15, 368);
             this.BackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackButton.Name = "BackButton";
@@ -59,6 +62,7 @@
             // ProcName
             // 
             this.ProcName.AutoSize = true;
+            this.ProcName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ProcName.Location = new System.Drawing.Point(12, 9);
             this.ProcName.Name = "ProcName";
             this.ProcName.Size = new System.Drawing.Size(133, 16);
@@ -73,7 +77,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 421);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.ClientSize = new System.Drawing.Size(512, 421);
             this.Controls.Add(this.ProcName);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.VarPanel);

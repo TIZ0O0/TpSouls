@@ -36,11 +36,13 @@
             // 
             // OpenTMButton
             // 
-            this.OpenTMButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.OpenTMButton.Location = new System.Drawing.Point(45, 106);
-            this.OpenTMButton.Margin = new System.Windows.Forms.Padding(2);
+            this.OpenTMButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.OpenTMButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OpenTMButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.OpenTMButton.Location = new System.Drawing.Point(60, 148);
+            this.OpenTMButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OpenTMButton.Name = "OpenTMButton";
-            this.OpenTMButton.Size = new System.Drawing.Size(114, 63);
+            this.OpenTMButton.Size = new System.Drawing.Size(152, 78);
             this.OpenTMButton.TabIndex = 15;
             this.OpenTMButton.Text = "Open TpMap";
             this.OpenTMButton.UseVisualStyleBackColor = false;
@@ -48,11 +50,13 @@
             // 
             // OpenVCButton
             // 
-            this.OpenVCButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.OpenVCButton.Location = new System.Drawing.Point(200, 106);
-            this.OpenVCButton.Margin = new System.Windows.Forms.Padding(2);
+            this.OpenVCButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.OpenVCButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OpenVCButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.OpenVCButton.Location = new System.Drawing.Point(268, 148);
+            this.OpenVCButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OpenVCButton.Name = "OpenVCButton";
-            this.OpenVCButton.Size = new System.Drawing.Size(114, 63);
+            this.OpenVCButton.Size = new System.Drawing.Size(152, 78);
             this.OpenVCButton.TabIndex = 16;
             this.OpenVCButton.Text = "Open VarChanger";
             this.OpenVCButton.UseVisualStyleBackColor = false;
@@ -60,11 +64,13 @@
             // 
             // SelectProcButton
             // 
-            this.SelectProcButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.SelectProcButton.Location = new System.Drawing.Point(11, 45);
-            this.SelectProcButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SelectProcButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.SelectProcButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SelectProcButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SelectProcButton.Location = new System.Drawing.Point(186, 62);
+            this.SelectProcButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SelectProcButton.Name = "SelectProcButton";
-            this.SelectProcButton.Size = new System.Drawing.Size(70, 40);
+            this.SelectProcButton.Size = new System.Drawing.Size(93, 49);
             this.SelectProcButton.TabIndex = 17;
             this.SelectProcButton.Text = "Select Process";
             this.SelectProcButton.UseVisualStyleBackColor = false;
@@ -73,22 +79,26 @@
             // ProcName
             // 
             this.ProcName.AutoSize = true;
-            this.ProcName.Location = new System.Drawing.Point(9, 7);
-            this.ProcName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ProcName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.ProcName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ProcName.Location = new System.Drawing.Point(166, 25);
             this.ProcName.Name = "ProcName";
-            this.ProcName.Size = new System.Drawing.Size(105, 13);
+            this.ProcName.Size = new System.Drawing.Size(133, 16);
             this.ProcName.TabIndex = 25;
             this.ProcName.Text = "ProcessName: None";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 304);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.ClientSize = new System.Drawing.Size(479, 303);
             this.Controls.Add(this.ProcName);
             this.Controls.Add(this.SelectProcButton);
             this.Controls.Add(this.OpenVCButton);
             this.Controls.Add(this.OpenTMButton);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

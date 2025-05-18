@@ -43,7 +43,9 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SaveButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SaveButton.Location = new System.Drawing.Point(148, 395);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SaveButton.Name = "SaveButton";
@@ -55,7 +57,9 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.LoadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.LoadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LoadButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LoadButton.Location = new System.Drawing.Point(253, 395);
             this.LoadButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoadButton.Name = "LoadButton";
@@ -68,6 +72,7 @@
             // FileName
             // 
             this.FileName.AutoSize = true;
+            this.FileName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FileName.Location = new System.Drawing.Point(27, 31);
             this.FileName.Name = "FileName";
             this.FileName.Size = new System.Drawing.Size(105, 16);
@@ -76,7 +81,9 @@
             // 
             // NewButton
             // 
-            this.NewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.NewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.NewButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NewButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NewButton.Location = new System.Drawing.Point(405, 31);
             this.NewButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NewButton.Name = "NewButton";
@@ -90,6 +97,7 @@
             // 
             this.TPointsPannel.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.TPointsPannel.AutoScroll = true;
+            this.TPointsPannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.TPointsPannel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPointsPannel.Location = new System.Drawing.Point(29, 63);
             this.TPointsPannel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -99,7 +107,9 @@
             // 
             // AddButton
             // 
-            this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AddButton.Location = new System.Drawing.Point(405, 106);
             this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddButton.Name = "AddButton";
@@ -111,8 +121,10 @@
             // 
             // EditButton
             // 
-            this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EditButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.EditButton.Location = new System.Drawing.Point(405, 181);
             this.EditButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EditButton.Name = "EditButton";
@@ -124,7 +136,9 @@
             // 
             // DelButton
             // 
-            this.DelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.DelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.DelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DelButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DelButton.Location = new System.Drawing.Point(405, 256);
             this.DelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DelButton.Name = "DelButton";
@@ -136,7 +150,9 @@
             // 
             // TeleportButton
             // 
-            this.TeleportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.TeleportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.TeleportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.TeleportButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TeleportButton.Location = new System.Drawing.Point(405, 331);
             this.TeleportButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TeleportButton.Name = "TeleportButton";
@@ -149,6 +165,7 @@
             // ProcName
             // 
             this.ProcName.AutoSize = true;
+            this.ProcName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ProcName.Location = new System.Drawing.Point(27, 9);
             this.ProcName.Name = "ProcName";
             this.ProcName.Size = new System.Drawing.Size(133, 16);
@@ -157,7 +174,9 @@
             // 
             // BackButton
             // 
-            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackButton.Location = new System.Drawing.Point(29, 395);
             this.BackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackButton.Name = "BackButton";
@@ -171,6 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(548, 450);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.ProcName);

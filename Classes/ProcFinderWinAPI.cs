@@ -116,7 +116,7 @@ namespace TpSouls
 
         private static bool ProcFilter(PROCESSENTRY32 proc)
         {
-            if (CheckForName(proc) && CheckForPath(proc)) return true;
+            if (CheckForName(proc)) return true;
             else return false;
         }
     }

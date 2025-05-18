@@ -42,7 +42,9 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SaveButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SaveButton.Location = new System.Drawing.Point(44, 151);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SaveButton.Name = "SaveButton";
@@ -56,6 +58,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(27, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 20);
@@ -64,6 +67,9 @@
             // 
             // NameBox
             // 
+            this.NameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.NameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NameBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NameBox.Location = new System.Drawing.Point(92, 9);
             this.NameBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NameBox.Name = "NameBox";
@@ -74,6 +80,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(32, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 20);
@@ -82,6 +89,9 @@
             // 
             // PosXBox
             // 
+            this.PosXBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.PosXBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PosXBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.PosXBox.Location = new System.Drawing.Point(92, 44);
             this.PosXBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PosXBox.Name = "PosXBox";
@@ -92,6 +102,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(32, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 20);
@@ -100,6 +111,9 @@
             // 
             // PosYBox
             // 
+            this.PosYBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.PosYBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PosYBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.PosYBox.Location = new System.Drawing.Point(92, 78);
             this.PosYBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PosYBox.Name = "PosYBox";
@@ -110,6 +124,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(32, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 20);
@@ -118,6 +133,9 @@
             // 
             // PosZBox
             // 
+            this.PosZBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.PosZBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PosZBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.PosZBox.Location = new System.Drawing.Point(92, 110);
             this.PosZBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PosZBox.Name = "PosZBox";
@@ -126,7 +144,9 @@
             // 
             // CancButton
             // 
-            this.CancButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.CancButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.CancButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CancButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.CancButton.Location = new System.Drawing.Point(227, 151);
             this.CancButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancButton.Name = "CancButton";
@@ -140,7 +160,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 265);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.ClientSize = new System.Drawing.Size(407, 253);
             this.ControlBox = false;
             this.Controls.Add(this.CancButton);
             this.Controls.Add(this.label3);

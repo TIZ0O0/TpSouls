@@ -52,7 +52,7 @@ namespace TpSouls.Forms
                     break;
 
                 case TpSoulsLogic.ErrorType.FailedToWriteMemory:
-                    MessageBox.Show("Failed to change value! (Use right value format or check offsets)", "ErrorMessage", MessageBoxButtons.OK);
+                    MessageBox.Show("Failed to change value! (Use right value format or check pointers)", "ErrorMessage", MessageBoxButtons.OK);
                     break;
 
                 default:
