@@ -1,12 +1,7 @@
-﻿using System.Management;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Drawing;
-using System.Diagnostics;
-using static TpSouls.ProcFinderWinAPI;
 
 namespace TpSouls
 {

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TpSouls.UI_Elements;
 
 namespace TpSouls.Forms
 {
@@ -35,23 +27,23 @@ namespace TpSouls.Forms
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            TpSoulsLogic.ErrorType error = TpSoulsLogic.SetValue(
-                TpSoulsLogic.selectedVarCtrl.VarOffset, 
-                TpSoulsLogic.selectedVarCtrl.VarType, 
+            MainLogic.ErrorType error = MainLogic.SetValue(
+                MainLogic.selectedVarCtrl.VarOffset, 
+                MainLogic.selectedVarCtrl.VarType, 
                 this.Value.Text);
 
             switch (error)
             {
-                case TpSoulsLogic.ErrorType.None:
+                case MainLogic.ErrorType.None:
                     varList.Enabled = true;
                     this.Hide();
                     break;                                      
                     
-                case TpSoulsLogic.ErrorType.UnknownType:
+                case MainLogic.ErrorType.UnknownType:
                     MessageBox.Show("Unknwon value type!", "ErrorMessage", MessageBoxButtons.OK);
                     break;
 
-                case TpSoulsLogic.ErrorType.FailedToWriteMemory:
+                case MainLogic.ErrorType.FailedToWriteMemory:
                     MessageBox.Show("Failed to change value! (Use right value format or check pointers)", "ErrorMessage", MessageBoxButtons.OK);
                     break;
 

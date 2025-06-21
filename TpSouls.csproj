@@ -129,23 +129,7 @@
       <DependentUpon>ProcessesPannel.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\ProcFinderWinAPI.cs" />
-    <Compile Include="Forms\TPointEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\TPointEdit.Designer.cs">
-      <DependentUpon>TPointEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI_Elements\TPointButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\TpSoulsLogic.cs" />
-    <Compile Include="Classes\TPoint.cs" />
-    <Compile Include="Forms\TpMap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\TpMap.Designer.cs">
-      <DependentUpon>TpMap.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Classes\MainLogic.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\VarList.cs">
@@ -162,12 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessesPannel.resx">
       <DependentUpon>ProcessesPannel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TPointEdit.resx">
-      <DependentUpon>TPointEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TpMap.resx">
-      <DependentUpon>TpMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VarList.resx">
       <DependentUpon>VarList.cs</DependentUpon>

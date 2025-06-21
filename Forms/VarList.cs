@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TpSouls.Forms;
 using TpSouls.UI_Elements;
@@ -61,7 +55,7 @@ namespace TpSouls
                 {
                     varCtrl.Invoke((MethodInvoker)(() =>
                     {
-                        varCtrl.VarValue = TpSoulsLogic.GetValue(varCtrl.VarOffset, varCtrl.VarType);
+                        varCtrl.VarValue = MainLogic.GetValue(varCtrl.VarOffset, varCtrl.VarType);
                     }));
                 }
 

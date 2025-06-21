@@ -1,27 +1,21 @@
 ﻿using Memory;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Management;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using TpSouls.Forms;
 using TpSouls.UI_Elements;
 
 namespace TpSouls
 {
-    internal static class TpSoulsLogic
+    internal static class MainLogic
     {
         public static MainForm mainForm;
 
         public static string currentPath = null;
 
         public static Mem memory = new Mem();
-
-        public static TPointButton selectedTPbutton = null;
-        public static List<TPoint> selectedTPoints = new List<TPoint>();
 
         public static VarControl selectedVarCtrl = null;
 
@@ -63,18 +57,6 @@ namespace TpSouls
             varsPointers.Clear();
     }
 
-        public static TPointButton[] GetTP_Buttons()
-        {
-            TPointButton[] tpButtons = new TPointButton[selectedTPoints.Count];
-
-            for (int i = selectedTPoints.Count - 1, j = 0; i >= 0; i--, j++)
-            {
-                tpButtons[j] = new TPointButton(selectedTPoints[i]);
-            }
-
-            return tpButtons;
-        }
-
         public static ProcessButton[] GetProcess_Buttons()
         {
             ProcessButton[] procButtons = new ProcessButton[currentProcs.Count];
@@ -98,17 +80,7 @@ namespace TpSouls
             }            
 
             return varCtrl;
-        }
-
-        public static void Teleport()
-        {
-            if (pointerX != null && pointerY != null && pointerZ != null && selectedTPbutton != null)
-            {
-                memory.WriteMemory(pointerX, "float", selectedTPbutton.assignedTPoint.posX.ToString());
-                memory.WriteMemory(pointerY, "float", selectedTPbutton.assignedTPoint.posY.ToString());
-                memory.WriteMemory(pointerZ, "float", selectedTPbutton.assignedTPoint.posZ.ToString());
-            }
-        }
+        }       
 
         public static ErrorType SetValue(string pointer, string type, string value)
         {

@@ -83,14 +83,14 @@ namespace TpSouls.UI_Elements
 
         private void TextBox_DoubleClick(object sender, EventArgs e)
         {
-            TpSoulsLogic.selectedVarCtrl = this;
+            MainLogic.selectedVarCtrl = this;
 
             varList.CallVarEditor(this.VarValue, this.VarType);
         }
 
         private void CheckBox_CheckedChange(object sender, EventArgs e)
         {
-            bool succes = TpSoulsLogic.SetValueFreezeState(VarOffset, VarType, VarValue, checkBox.Checked);
+            bool succes = MainLogic.SetValueFreezeState(VarOffset, VarType, VarValue, checkBox.Checked);
             if (!succes) checkBox.Checked = !checkBox.Checked;
         }
     }

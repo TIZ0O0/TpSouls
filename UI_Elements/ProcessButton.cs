@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
-using System.Management;
 using System.Windows.Forms;
 
 
@@ -35,12 +33,12 @@ namespace TpSouls
 
         private static void SelectProcess(ProcessButton pb)
         {
-            if (TpSoulsLogic.selectedProcButton != null)
-                TpSoulsLogic.selectedProcButton.BackColor = baseBackColor;
+            if (MainLogic.selectedProcButton != null)
+                MainLogic.selectedProcButton.BackColor = baseBackColor;
 
-            TpSoulsLogic.selectedProcButton = pb;
+            MainLogic.selectedProcButton = pb;
 
-            TpSoulsLogic.selectedProcButton.BackColor = pressedBackColor;
+            MainLogic.selectedProcButton.BackColor = pressedBackColor;
         }
     }
 }

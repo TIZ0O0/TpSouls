@@ -15,7 +15,7 @@ namespace TpSouls
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             MainForm mainForm = new MainForm();
-            TpSoulsLogic.mainForm = mainForm;
+            MainLogic.mainForm = mainForm;
             Application.Run(mainForm);
         }
     }

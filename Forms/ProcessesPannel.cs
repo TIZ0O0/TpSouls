@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using TpSouls.Forms;
 
 namespace TpSouls
@@ -19,7 +17,6 @@ namespace TpSouls
         public void SetAllProcessName(string name)
         {
             mainForm.SetProcessName(name);
-            mainForm.tMap.SetProcessName(name);
             mainForm.varList.SetProcessName(name);
         }
 
@@ -27,58 +24,58 @@ namespace TpSouls
         {
             this.Show();
 
-            TpSoulsLogic.currentProcs = ProcFinderWinAPI.GetProcesses();
+            MainLogic.currentProcs = ProcFinderWinAPI.GetProcesses();
 
             ProcPannel.Controls.Clear();
-            ProcPannel.Controls.AddRange(TpSoulsLogic.GetProcess_Buttons());
+            ProcPannel.Controls.AddRange(MainLogic.GetProcess_Buttons());
         }     
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if (TpSoulsLogic.selectedProcButton != null)
+            if (MainLogic.selectedProcButton != null)
             {
-                string selectedName = TpSoulsLogic.selectedProcButton.assignedProcName;
-                int selectedId = (int)TpSoulsLogic.selectedProcButton.assignedProcID;        
+                string selectedName = MainLogic.selectedProcButton.assignedProcName;
+                int selectedId = (int)MainLogic.selectedProcButton.assignedProcID;        
 
-                TpSoulsLogic.ErrorType error = TpSoulsLogic.SetPointers(selectedName);
+                MainLogic.ErrorType error = MainLogic.SetPointers(selectedName);
 
                 switch (error)
                 {
-                    case TpSoulsLogic.ErrorType.None:
+                    case MainLogic.ErrorType.None:
 
-                        bool openProc = TpSoulsLogic.memory.OpenProcess(selectedId);
+                        bool openProc = MainLogic.memory.OpenProcess(selectedId);
 
                         if (!openProc)
                         {
                             MessageBox.Show("Failed to open selected process.", "ErrorMessage", MessageBoxButtons.OK);
-                            TpSoulsLogic.ResetPointers();
+                            MainLogic.ResetPointers();
                             return;
                         }
 
-                        TpSoulsLogic.selectedProcID = TpSoulsLogic.selectedProcButton.assignedProcID;
-                        TpSoulsLogic.selectedProcName = TpSoulsLogic.selectedProcButton.assignedProcName;
+                        MainLogic.selectedProcID = MainLogic.selectedProcButton.assignedProcID;
+                        MainLogic.selectedProcName = MainLogic.selectedProcButton.assignedProcName;
 
-                        SetAllProcessName(TpSoulsLogic.selectedProcButton.assignedProcName);
+                        SetAllProcessName(MainLogic.selectedProcButton.assignedProcName);
 
                         mainForm.varList.VarPanel.Controls.Clear();
-                        mainForm.varList.VarPanel.Controls.AddRange(TpSoulsLogic.GetVarControls());
+                        mainForm.varList.VarPanel.Controls.AddRange(MainLogic.GetVarControls());
 
-                        TpSoulsLogic.selectedProcButton = null;
+                        MainLogic.selectedProcButton = null;
 
                         mainForm.Enabled = true;
                         this.Hide();
 
                         break;
 
-                    case TpSoulsLogic.ErrorType.FileDoesntExists:
+                    case MainLogic.ErrorType.FileDoesntExists:
                         MessageBox.Show("Cant find Offsets.txt file in base directory.", "ErrorMessage", MessageBoxButtons.OK);
                         break;
 
-                    case TpSoulsLogic.ErrorType.WrongPointerFormat:
+                    case MainLogic.ErrorType.WrongPointerFormat:
                         MessageBox.Show("Wrong offset format in Offsets.txt file.", "ErrorMessage", MessageBoxButtons.OK);
                         break;
 
-                    case TpSoulsLogic.ErrorType.NoPointersForProcess:
+                    case MainLogic.ErrorType.NoPointersForProcess:
                         MessageBox.Show("Cant find offsets for selected process in Offsets.txt file.", "ErrorMessage", MessageBoxButtons.OK);
                         break;
 
@@ -90,7 +87,7 @@ namespace TpSouls
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            TpSoulsLogic.selectedProcButton = null;
+            MainLogic.selectedProcButton = null;
 
             mainForm.Enabled = true;
             this.Hide();

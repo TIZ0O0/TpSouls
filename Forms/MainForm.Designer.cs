@@ -28,32 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.OpenTMButton = new System.Windows.Forms.Button();
             this.OpenVCButton = new System.Windows.Forms.Button();
             this.SelectProcButton = new System.Windows.Forms.Button();
             this.ProcName = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // OpenTMButton
-            // 
-            this.OpenTMButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.OpenTMButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.OpenTMButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.OpenTMButton.Location = new System.Drawing.Point(60, 148);
-            this.OpenTMButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.OpenTMButton.Name = "OpenTMButton";
-            this.OpenTMButton.Size = new System.Drawing.Size(152, 78);
-            this.OpenTMButton.TabIndex = 15;
-            this.OpenTMButton.Text = "Open TpMap";
-            this.OpenTMButton.UseVisualStyleBackColor = false;
-            this.OpenTMButton.Click += new System.EventHandler(this.OpenTMButton_Click);
             // 
             // OpenVCButton
             // 
             this.OpenVCButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.OpenVCButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.OpenVCButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.OpenVCButton.Location = new System.Drawing.Point(268, 148);
+            this.OpenVCButton.Location = new System.Drawing.Point(158, 153);
             this.OpenVCButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OpenVCButton.Name = "OpenVCButton";
             this.OpenVCButton.Size = new System.Drawing.Size(152, 78);
@@ -96,7 +81,6 @@
             this.Controls.Add(this.ProcName);
             this.Controls.Add(this.SelectProcButton);
             this.Controls.Add(this.OpenVCButton);
-            this.Controls.Add(this.OpenTMButton);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -110,8 +94,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button OpenTMButton;
         private System.Windows.Forms.Button OpenVCButton;
         private System.Windows.Forms.Button SelectProcButton;
         private System.Windows.Forms.Label ProcName;

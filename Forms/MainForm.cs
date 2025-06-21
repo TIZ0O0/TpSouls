@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TpSouls.Forms
 {
     public partial class MainForm : Form
     {
-        public TpMap tMap;
         public VarList varList;
         public ProcessesPannel procPanel;
 
@@ -26,18 +18,10 @@ namespace TpSouls.Forms
             this.ProcName.Text = "ProcessName: " + name;
         }
 
-        private void OpenTMButton_Click(object sender, EventArgs e)
-        {
-            tMap.Show();
-            this.Hide();
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-            tMap = new TpMap(this);
             varList = new VarList(this);
             procPanel = new ProcessesPannel(this);
-            tMap.Hide();
             varList.Hide();
             procPanel.Hide();
         }
